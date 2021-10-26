@@ -20,6 +20,9 @@ jobs:
 
      - name: Build static file
        run: npm run build
+       
+     - name: Zip build folder
+       run: zip -r -j webapp.zip build/*
 
      - name: Configure AWS Credentials
        uses: aws-actions/configure-aws-credentials@v1
@@ -29,4 +32,4 @@ jobs:
          aws-region: us-east-1
 
      - name: Deploy static site to S3 bucket
-       run: aws s3 sync ./build s3://learning-ci
+       run: aws s3 cp webapp.zip s3://learning-ci-artifacts/staging/webapp/current
