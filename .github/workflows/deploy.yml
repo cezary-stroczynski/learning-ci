@@ -34,4 +34,4 @@ jobs:
          aws-region: us-east-1
 
      - name: Deploy static site to S3 bucket
-       run: aws s3 cp webapp.zip s3://learning-ci-artifacts/staging/webapp/current/webapp.zip
+       run: aws s3 cp build/webapp.zip s3://learning-ci-artifacts/staging/webapp/current/webapp.zip
