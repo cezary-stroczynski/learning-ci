@@ -22,7 +22,9 @@ jobs:
        run: npm run build
        
      - name: Zip build folder
-       run: zip -r -j webapp.zip build/*
+       run: |
+        cd build
+        zip -r webapp.zip ./*
 
      - name: Configure AWS Credentials
        uses: aws-actions/configure-aws-credentials@v1
